@@ -3,6 +3,6 @@ Complete mMySQL Database Managements with all queries with all SQL note.
 
 ```php	
 	
-	<?php require_once "table.php"; ?>
+	require_once "table.php";
 
 ```
