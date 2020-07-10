@@ -17,26 +17,26 @@
 		<div class="card shadow">
 			<div class="card-body">
 				<h2>Sign Up</h2>
-				<form action="">
+				<form action="" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="">Name</label>
-						<input class="form-control" type="text">
+						<input name="name" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Email</label>
-						<input class="form-control" type="text">
+						<input name="email" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Cell</label>
-						<input class="form-control" type="text">
+						<input name="cell" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Username</label>
-						<input class="form-control" type="text">
+						<input name="uname" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Location</label>
-						<select class="form-control" name="" id="">
+						<select name="location" class="form-control" id="">
 							<option value="">-select-</option>
 							<option value="">Mirpur</option>
 							<option value="">Banani</option>
@@ -48,7 +48,7 @@
 					</div>
 					<div class="form-group">
 						<label for="">Age</label>
-						<input class="form-control" type="text">
+						<input name="age" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Gender</label>
@@ -58,11 +58,11 @@
 					</div>
 					<div class="form-group">
 						<label for="">Photo</label>
-						<input class="form-control" type="file">
+						<input name="photo" class="form-control" type="file">
 					</div>
 
 					<div class="form-group">
-						<input type="checkbox"  id="status"> <label for="status">Published</label>
+						<input name="status" type="checkbox" checked  id="status"> <label for="status">Published</label>
 					</div>
 
 
