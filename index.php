@@ -10,7 +10,48 @@
 </head>
 <body>
 	
-	
+	<?php  
+
+
+	/**
+	 * Student Data form setup 
+	 */
+
+	if ( isset($_POST['add']) ) {
+		
+		// Value get 
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$cell = $_POST['cell'];
+		$uname = $_POST['uname'];
+		$location = $_POST['location'];
+		$age = $_POST['age'];
+		$gender = $_POST['gender'];
+		$status = $_POST['status'];
+
+		// File Upload 
+		$image = $_FILES['photo'];
+
+
+
+
+		
+
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+	?>
 
 	<div class="wrap ">
 		<a class="btn btn-sm btn-primary" href="table.php">All data</a>
@@ -38,12 +79,12 @@
 						<label for="">Location</label>
 						<select name="location" class="form-control" id="">
 							<option value="">-select-</option>
-							<option value="">Mirpur</option>
-							<option value="">Banani</option>
-							<option value="">Uttara</option>
-							<option value="">Dhanmondi</option>
-							<option value="">Badda</option>
-							<option value="">Others</option>
+							<option value="Mirpur">Mirpur</option>
+							<option value="Banani">Banani</option>
+							<option value="Uttara">Uttara</option>
+							<option value="Dhanmondi">Dhanmondi</option>
+							<option value="Badda">Badda</option>
+							<option value="Others">Others</option>
 						</select>
 					</div>
 					<div class="form-group">
@@ -62,12 +103,12 @@
 					</div>
 
 					<div class="form-group">
-						<input name="status" type="checkbox" checked  id="status"> <label for="status">Published</label>
+						<input name="status" type="checkbox" checked value="Published"  id="status"> <label for="status">Published</label>
 					</div>
 
 
 					<div class="form-group">
-						<input class="btn btn-primary" type="submit" value="Add student">
+						<input name="add" class="btn btn-primary" type="submit" value="Add student">
 					</div>
 				</form>
 			</div>
