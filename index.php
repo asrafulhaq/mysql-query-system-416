@@ -60,8 +60,14 @@
 						<label for="">Photo</label>
 						<input class="form-control" type="file">
 					</div>
+
 					<div class="form-group">
-						<input class="btn btn-primary" type="submit" value="Sign Up">
+						<input type="checkbox"  id="status"> <label for="status">Published</label>
+					</div>
+
+
+					<div class="form-group">
+						<input class="btn btn-primary" type="submit" value="Add student">
 					</div>
 				</form>
 			</div>
