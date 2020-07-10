@@ -1,3 +1,8 @@
+<?php  
+	require_once "app/db.php";
+	require_once "app/functions.php";
+?>
+	
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,16 +31,33 @@
 		$uname = $_POST['uname'];
 		$location = $_POST['location'];
 		$age = $_POST['age'];
-		$gender = $_POST['gender'];
 		$status = $_POST['status'];
+
+		// Gender value fix
+		if (isset($_POST['gender'])) {
+			$gender = $_POST['gender'];
+		}
 
 		// File Upload 
 		$image = $_FILES['photo'];
 
 
+		/**
+		 * From validation 
+		 */
+		if ( empty($name) || empty($email) || empty($cell) || empty($uname) || empty($location) || empty($age) || empty($gender) || empty($status) ) {
+			$mess = '<p class=\'alert alert-danger\'>All fields are requiired ! <button class=\'close\' data-dismiss=\'alert\'>&times;</button></p>';
+		}elseif( !filter_var($email, FILTER_VALIDATE_EMAIL) ){
+			$mess = '<p class=\'alert alert-danger\'>Invalid email address ! <button class=\'close\' data-dismiss=\'alert\'>&times;</button></p>';
+		}else {
+			$sql = "INSERT INTO students (name, email, cell, uname, location, age, gender, status) VALUES ('$name','$email','$cell','$uname','$location','$age','$gender','$status')";
+			$connection -> query($sql);
+
+			$mess = '<p class=\'alert alert-success\'>Student Added successfull ! <button class=\'close\' data-dismiss=\'alert\'>&times;</button></p>';
+
+		}
 
 
-		
 
 
 
@@ -58,6 +80,13 @@
 		<div class="card shadow">
 			<div class="card-body">
 				<h2>Sign Up</h2>
+				<?php  
+
+					if ( isset($mess) ) {
+						echo $mess;
+					}
+
+				?>
 				<form action="" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="">Name</label>
