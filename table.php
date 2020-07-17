@@ -29,6 +29,7 @@
 						<tr>
 							<th>#</th>
 							<th>Name</th>
+							<th>Username</th>
 							<th>Email</th>
 							<th>Cell</th>
 							<th>Photo</th>
@@ -45,13 +46,15 @@
 							$sql = "SELECT * FROM students";
 							$data = $connection -> query($sql);
 
+							$i = 1;
 							while( $final_data = $data -> fetch_assoc() ) :
 
 						?>
 
 						<tr>
-							<td>1</td>
+							<td><?php echo $i;  $i++; ?></td>
 							<td><?php echo $final_data['name']; ?></td>
+							<td><?php echo $final_data['uname']; ?></td>
 							<td><?php echo $final_data['email']; ?></td>
 							<td><?php echo $final_data['cell']; ?></td>
 							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>

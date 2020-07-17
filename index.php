@@ -38,8 +38,8 @@
 			$gender = $_POST['gender'];
 		}
 
-		// File Upload 
-		$image = $_FILES['photo'];
+		
+		
 
 
 		/**
@@ -50,10 +50,25 @@
 		}elseif( !filter_var($email, FILTER_VALIDATE_EMAIL) ){
 			$mess = '<p class=\'alert alert-danger\'>Invalid email address ! <button class=\'close\' data-dismiss=\'alert\'>&times;</button></p>';
 		}else {
-			$sql = "INSERT INTO students (name, email, cell, uname, location, age, gender, status) VALUES ('$name','$email','$cell','$uname','$location','$age','$gender','$status')";
-			$connection -> query($sql);
 
-			$mess = '<p class=\'alert alert-success\'>Student Added successfull ! <button class=\'close\' data-dismiss=\'alert\'>&times;</button></p>';
+			
+			// File Upload 
+			$file_data = fileUpload($_FILES['photo'], 'students/' , ['jpg','jpeg','gif'] ,  1024);
+
+			$file_mess = $file_data['mess'];
+			$file_name = $file_data['file_name'];
+
+			if ( !empty($file_mess) ) {
+				$mess = $file_mess;
+			}else {
+				$sql = "INSERT INTO students (name, email, cell, uname, location, age, gender, photo status) VALUES ('$name','$email','$cell','$uname','$location','$age','$gender', '$file_name', '$status')";
+				$connection -> query($sql);
+
+				$mess = '<p class=\'alert alert-success\'>Student Added successfull ! <button class=\'close\' data-dismiss=\'alert\'>&times;</button></p>';
+			}
+
+
+			
 
 		}
 
