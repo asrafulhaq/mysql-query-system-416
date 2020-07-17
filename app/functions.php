@@ -27,7 +27,7 @@
 			$file_size_check = true;
 		}
 
-
+		$mess = null;
 		// File type check
 		if ( in_array( $file_extension , $file_type) == false ) {
 			$mess = '<p class=\'alert alert-danger\'>Invalid file formate ! <button class=\'close\' data-dismiss=\'alert\'>&times;</button></p>';

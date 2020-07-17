@@ -54,3 +54,42 @@ function fileUpload($file, $location = '', $file_type = ['jpg','png','gif','jpeg
 }
 
 ```
+
+#### Email, Cell, Username Check System 
+
+``` php 
+	
+// Email check
+$sql = "SELECT email FROM students WHERE email='$email'";
+$email_data = $connection -> query($sql);
+$num_email =  $email_data -> num_rows ; 
+if ( $num_email > 0 ) {
+	$email_check = false;
+}else {
+	$email_check = true;
+}
+
+
+
+// Email check
+$sql = "SELECT uname FROM students WHERE uname='$uname'";
+$uname_data = $connection -> query($sql);
+$num_uname =  $uname_data -> num_rows ; 
+if ( $num_uname > 0 ) {
+	$uname_check = false;
+}else {
+	$uname_check = true;
+}
+
+
+// Email check
+$sql = "SELECT cell FROM students WHERE cell='$cell'";
+$cell_data = $connection -> query($sql);
+$num_cell =  $cell_data -> num_rows ; 
+if ( $num_cell > 0 ) {
+	$cell_check = false;
+}else {
+	$cell_check = true;
+}
+	
+```

@@ -31,7 +31,10 @@
 							<th>Name</th>
 							<th>Username</th>
 							<th>Email</th>
+							<th>Age</th>
+							<th>Gender</th>
 							<th>Cell</th>
+							<th>Location</th>
 							<th>Photo</th>
 							<th>Action</th>
 						</tr>
@@ -56,8 +59,11 @@
 							<td><?php echo $final_data['name']; ?></td>
 							<td><?php echo $final_data['uname']; ?></td>
 							<td><?php echo $final_data['email']; ?></td>
+							<td><?php echo $final_data['age']; ?></td>
+							<td><?php echo $final_data['gender']; ?></td>
 							<td><?php echo $final_data['cell']; ?></td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
+							<td><?php echo $final_data['location']; ?></td>
+							<td><img src="students/<?php echo $final_data['photo']; ?>" alt=""></td>
 							<td>
 								<a class="btn btn-sm btn-info" href="#">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
