@@ -50,3 +50,28 @@
 
 	}
 
+
+
+
+
+	/**
+	 * Data Check 
+	 */
+	function dataCheck( $connection , $table, $col, $data ){
+
+
+		// Data check
+		$sql = "SELECT $col FROM $table WHERE $col='$data'";
+		$email_data = $connection -> query($sql);
+		$num_email =  $email_data -> num_rows ; 
+		if ( $num_email > 0 ) {
+			return false;
+		}else {
+			return  true;
+		}
+		
+
+
+		
+
+	}

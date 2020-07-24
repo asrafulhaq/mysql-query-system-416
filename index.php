@@ -40,41 +40,6 @@
 
 		
 
-		// Email check
-		$sql = "SELECT email FROM students WHERE email='$email'";
-		$email_data = $connection -> query($sql);
-		$num_email =  $email_data -> num_rows ; 
-		if ( $num_email > 0 ) {
-			$email_check = false;
-		}else {
-			$email_check = true;
-		}
-		
-
-
-		// Email check
-		$sql = "SELECT uname FROM students WHERE uname='$uname'";
-		$uname_data = $connection -> query($sql);
-		$num_uname =  $uname_data -> num_rows ; 
-		if ( $num_uname > 0 ) {
-			$uname_check = false;
-		}else {
-			$uname_check = true;
-		}
-
-
-		// Email check
-		$sql = "SELECT cell FROM students WHERE cell='$cell'";
-		$cell_data = $connection -> query($sql);
-		$num_cell =  $cell_data -> num_rows ; 
-		if ( $num_cell > 0 ) {
-			$cell_check = false;
-		}else {
-			$cell_check = true;
-		}
-
-
-
 
 
 
@@ -85,12 +50,12 @@
 			$mess = '<p class=\'alert alert-danger\'>All fields are requiired ! <button class=\'close\' data-dismiss=\'alert\'>&times;</button></p>';
 		}elseif( !filter_var($email, FILTER_VALIDATE_EMAIL) ){
 			$mess = '<p class=\'alert alert-danger\'>Invalid email address ! <button class=\'close\' data-dismiss=\'alert\'>&times;</button></p>';
-		}elseif($email_check == false){
+		}elseif(dataCheck($connection, 'students', 'email', $email) == false){
 			$mess = '<p class=\'alert alert-warning\'>Email already exists ! <button class=\'close\' data-dismiss=\'alert\'>&times;</button></p>';
 
-		}elseif( $uname_check == false ){
+		}elseif( dataCheck($connection, 'students', 'uname', $uname) == false ){
 			$mess = '<p class=\'alert alert-warning\'>Username already exists ! <button class=\'close\' data-dismiss=\'alert\'>&times;</button></p>';
-		}elseif( $cell_check == false ){
+		}elseif( dataCheck($connection, 'students', 'cell', $cell ) == false ){
 			$mess = '<p class=\'alert alert-warning\'>Cell already exists ! <button class=\'close\' data-dismiss=\'alert\'>&times;</button></p>';
 		}else {
 
